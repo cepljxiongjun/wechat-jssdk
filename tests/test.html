@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>微信Jssdk测试页面</title>
+</head>
+<body>
+<p>微信Jssdk测试页面</p>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="../src/sha1.js"></script>
+<script type="text/javascript" src="../src/wechat-jssdk.js"></script>
+<script>
+var jsApiTicket;
+
+$.ajax({
+    type: 'GET',
+    url: '/index/api-ticket',
+    dataType: 'json',
+    timeout: 300,
+    async: false,
+    success: function(data){
+    	jsApiTicket = data.jsApiTicket;
+    },
+})
+var config = {
+    'appid': 'wxe9be60addb7ab995',
+    'jsApiTicket':jsApiTicket,
+    'debug':true
+}
+wx.ready(function () {
+    var shareData = {
+        'imgUrl' : '微信分享图片',
+        'link' : '微信分享链接',
+        'desc' : '微信分享简介',
+        'title' : '微信分享标题',
+    };
+    
+    wx.onMenuShareAppMessage(shareData);
+    wx.onMenuShareTimeline(shareData);
+    wx.onMenuShareQQ(shareData);
+    wx.onMenuShareWeibo(shareData);
+    wx.onMenuShareQZone(shareData);
+});
+wechatShare.init(config);
+</script>
+</body>
+</html>
