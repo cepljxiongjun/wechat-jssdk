@@ -76,3 +76,5 @@ debug：false-关闭调试模式 true-打开调试模式
 隐藏右上角菜单接口
 
     wx.hideOptionMenu();
+    
+等等……
