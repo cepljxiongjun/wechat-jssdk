@@ -15,7 +15,7 @@ debug：false-关闭调试模式 true-打开调试模式
 
 
     var config = {
-        'appid': 'wxe9be60addb7ab995',
+        'appid': 'XXXXX',
         'jsApiTicket':jsApiTicket,
         'debug':true
     }
